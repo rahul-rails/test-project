@@ -1,0 +1,22 @@
+<%= form_with(model: image_upload, local: true) do |form| %>
+  <% if image_upload.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(image_upload.errors.count, "error") %> prohibited this image_upload from being saved:</h2>
+
+      <ul>
+        <% image_upload.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true  %>
+  </div
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
