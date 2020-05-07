@@ -4,7 +4,6 @@ class ImageUploadsController < ApplicationController
   # GET /image_uploads/1
   # GET /image_uploads/1.json
   def show
-    byebug
   end
 
   # GET /image_uploads/new
@@ -16,7 +15,6 @@ class ImageUploadsController < ApplicationController
   # POST /image_uploads.json
   def create
     @image_upload = ImageUpload.new(image_upload_params)
-
     respond_to do |format|
       if @image_upload.save
         format.html { redirect_to @image_upload, notice: 'Image upload was successfully created.' }
