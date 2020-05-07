@@ -45,8 +45,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (this.readyState == 4 && this.status == 200) {
           document.getElementById("play-records").innerHTML = "";
           document.getElementById("play-records").innerHTML = this.responseText;
-
-          start();
         }
       };
 
