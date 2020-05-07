@@ -4,6 +4,7 @@ class ImageUploadsController < ApplicationController
   # GET /image_uploads/1
   # GET /image_uploads/1.json
   def show
+    byebug
   end
 
   # GET /image_uploads/new
@@ -25,6 +26,13 @@ class ImageUploadsController < ApplicationController
         format.json { render json: @image_upload.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def random_image_urls
+    image_uploads = ActiveStorage::Attachment.where(record_type: "ImageUpload").limit(10).order("RANDOM()")
+    @images = image_uploads.map {|image| rails_blob_path(image) }
+
+    render json: @images
   end
 
   private
